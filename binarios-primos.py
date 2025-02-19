@@ -97,7 +97,8 @@ def binary(): #calculate the binary number of the typed by user.
             print('converted value is: -> ' + str(binNum[::-1]))
             endtime = datetime.datetime.now()
             print(f'Time taken: {endtime - initime}')
-        elif (val == 0):
+            program_selection()
+        elif (val == 0): 
             print('processing........')
             binNum = '0'
             print('converted value is: -> ' + binNum[::-1])
@@ -198,23 +199,23 @@ def prime_select():
     selection = input('-->  ')
     
     if(selection == '1'):
-        clearConsole()
+        #clearConsole()
         print('Simple primes selected sucessfully')
         simpleprime()
     elif(selection == '2'):
-        clearConsole()
+        #clearConsole()
         print('Mersenne primes selected sucessfully')
         marsenne_prime()
     elif(selection == '3'):
-        clearConsole()
+        #clearConsole()
         print('Return to selection')
         program_selection()
     elif(selection == '4'):
-        clearConsole()
+        #clearConsole()
         print('Program exited sucessfully')
         return
     else:
-        clearConsole()
+        #clearConsole()
         print('Invalid selection. Please try again.')
         prime_select()
 
@@ -227,19 +228,19 @@ def program_selection():
     selection = input('-->  ')
     
     if(selection == '1'):
-        clearConsole()
+        #clearConsole()
         print('Binary Calculator selected sucessfully')
         binary()
     elif(selection == '2'):
-        clearConsole()
+        #clearConsole()
         print('Prime numbers selected sucessfully')
         prime_select()
     elif(selection == '3'):
-        clearConsole()
+        #clearConsole()
         print('Program exited')
         return
     else:
-        clearConsole()
+        #clearConsole()
         print('Invalid selection. Please try again.')
         program_selection()
     ##end program selection function

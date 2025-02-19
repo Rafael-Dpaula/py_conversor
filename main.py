@@ -9,25 +9,25 @@ sys.set_int_max_str_digits(2100000000)
 currentsize = sys.get_int_max_str_digits()
 
 conn = None
-try:
-    with psycopg2.connect(
-        "dbname='py_API'"
-        "user='postgres'"
-        "password='root'"
-        "host='localhost'"
-        "port=51120"
-    ) as conn:  
-        print('conexao bem sucedida')
-    with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
+try: #BANCO DE DADOS DESATIVADO
+    #with psycopg2.connect(
+    #    "dbname='py_API'"
+    #    "user='postgres'"
+    #    "password='root'"
+    #   "host='localhost'"
+    #  "port=51120"
+    #) as conn:  
+    #   print('conexao bem sucedida')
+    #with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
     
-        def select_login():
-            query = "SELECT id, email, nickname, ip_login from  login"
-            cur.execute(query)
-            result = cur.fetchall()
-            for row in result:
-                print(row)
-        select_login()
-        conn.commit()
+        #def select_login():
+        #   query = "SELECT id, email, nickname, ip_login from  login"
+        #  cur.execute(query)
+        #   print(row)
+        #select_login()
+        #conn.commit()
+        
+        
         customtkinter.set_appearance_mode('system')
         customtkinter.set_default_color_theme("green")
         window = customtkinter.CTk()
@@ -40,6 +40,7 @@ try:
         password_entry.pack(padx=10, pady=10)
         login_button = customtkinter.CTkButton(window, text="Login", command=lambda: login(nickname_entry, password_entry)).pack(padx=10, pady=10)
         window.bind("<enter>", login_button)
+        skip_button = customtkinter.CTkButton(window, text="skip login", command=lambda: main()).pack(padx=10, pady=10)
         
         
         def get_ip():
@@ -91,13 +92,13 @@ try:
             #dinamic main content
             def binary():
                 val = customtkinter.CTkEntry(master=main, font=('roboto', 18), placeholder_text="Número para conversão")
-                val.grid(row=0, column=0, padx=10, pady=10, sticky="")
+                val.grid(row=0, column=0, padx=10, pady=1, sticky="")
                 
                 
                 def calcBin(val_entry):
                     binNum = ''
-                    result = int(val.get())
                     val = int(val_entry.get())
+                    result = int(val)
                     
                     initime = datetime.datetime.now()
                     if(str(val).isdigit()):
@@ -125,14 +126,13 @@ try:
                             print('converted value is: -> ' + binNum[::-1])
                     else: 
                         print('Input invalid.')
-                btncalc = customtkinter.CTkButton(master=main, font=("roboto", 18), text="Run")
-                btncalc.grid(row=0, column=1, padx=10, pady=10, sticky="", command=lambda: calcBin(val))
+                
+                #end function
+                
+                btncalc = customtkinter.CTkButton(master=main, font=("roboto", 18), text="Run", command= lambda: calcBin(val))
+                btncalc.grid(row=0, column=1, padx=0, pady=0, sticky="")
                 output = customtkinter.CTkEntry(master=main, font=('roboto', 18), placeholder_text="", state='disabled')
-                output.grid(row=1, column=0, padx=10, pady=0, sticky="")
-                
-                
-                
-                    #end function
+                output.grid(row=1, column=0, padx=0, pady=0, sticky="")
             
             
             
@@ -148,9 +148,6 @@ try:
             p_marbut = customtkinter.CTkButton(sidebarframe, text="Mersenne Prime Calculator", width=200, height=60)
             p_marbut.grid(row=2, column=0, padx=20, pady=10, sticky="nws")
             
-            d3but = customtkinter.CTkButton(sidebarframe, text="Three way law Calculator", width=200, height=60)
-            d3but.grid(row=3, column=0, padx=20, pady=10, sticky="nws")
-
     
             window_quit(window)
             main.mainloop()
