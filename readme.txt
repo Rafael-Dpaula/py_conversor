@@ -1,6 +1,6 @@
 Para funcionamento siga os índices e coloque inputs válidos.
 
-app.py utiliza da biblioteca TKinter de python para a criação de uma UI user-friendly, já o terminal-app é em modo texto pelo próprio terminal, sendo uma ecolha mais leve e rápida do app.
+app.py utiliza da biblioteca TKinter de python para a criação de uma UI user-friendly, já o terminal-app.py é em modo texto pelo próprio terminal, sendo uma ecolha mais leve e rápida do app, mais recomendado para as buscas dos primos de mersenne.
 
 Avisos:
 *Números primos maiores levam mais tempo para serem calculados;
