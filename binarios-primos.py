@@ -109,6 +109,23 @@ def binary(): #calculate the binary number of the typed by user.
     else: 
         print('Input invalid.')
     #end function
+
+def binToDecimal():
+    val = input('Number for conversion: -> ')
+    decNum = 0
+    initime = datetime.datetime.now()
+    if(val.isdigit() and all(c in '01' for c in val)):
+        print('processing........')
+        valstr = val[::-1]
+        for i in range(len(valstr)):
+            decNum += int(valstr[i]) * (2**i)
+        print('converted value is: -> '+ str(decNum))
+        endtime = datetime.datetime.now()
+        print(f'Time taken: {endtime - initime}')
+        program_selection()
+    else: 
+        print('Input invalid.')
+    #end function
     
 def simpleprime():
     val = int(input('Number to compare if is prime: -> '))
@@ -219,6 +236,31 @@ def prime_select():
         print('Invalid selection. Please try again.')
         prime_select()
 
+def binarySelect():
+    print('1. Decimal to binary')
+    print('2. Binary to decimal')
+    print('3. Return to program selection')
+    selection = input('-->  ')
+
+    if(selection == '1'):
+        #clearConsole()
+        print('Decimal to binary selected sucessfully')
+        binary()
+    elif(selection == '2'):
+        #clearConsole()
+        print('Binary to decimal selected sucessfully')
+        binToDecimal()
+    elif(selection == '3'):
+        #clearConsole()
+        print('Program exited')
+        return
+    else:
+        #clearConsole()
+        print('Invalid selection. Please try again.')
+        program_selection()
+
+
+
 #Program selection
 def program_selection():
     print('Choose a program:')
@@ -230,7 +272,7 @@ def program_selection():
     if(selection == '1'):
         #clearConsole()
         print('Binary Calculator selected sucessfully')
-        binary()
+        binarySelect()
     elif(selection == '2'):
         #clearConsole()
         print('Prime numbers selected sucessfully')
